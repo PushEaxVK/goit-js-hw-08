@@ -82,3 +82,11 @@ function gengrateHtml(imageItem) {
 }
 
 gallery.insertAdjacentHTML('afterbegin', images.map(gengrateHtml).join('\n\n'));
+
+gallery.addEventListener('click', event => {
+  event.preventDefault();
+  if (event.target.tagName !== 'IMG') {
+    return;
+  }
+  const imageSource = event.target.dataset.source;
+});
