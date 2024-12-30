@@ -65,3 +65,20 @@ const images = [
     description: 'Lighthouse Coast Sea',
   },
 ];
+
+const gallery = document.querySelector('.gallery');
+
+function gengrateHtml(imageItem) {
+  return `<li class="gallery-item">
+  <a class="gallery-link" href="${imageItem.original}">
+    <img
+      class="gallery-image"
+      src="${imageItem.preview}"
+      data-source="${imageItem.original}"
+      alt="${imageItem.description}"
+    />
+  </a>
+</li>`;
+}
+
+gallery.insertAdjacentHTML('afterbegin', images.map(gengrateHtml).join('\n\n'));
