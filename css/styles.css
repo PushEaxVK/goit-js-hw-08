@@ -19,11 +19,19 @@ ul {
 }
 
 .gallery-item {
-  width: 360px;
-  height: 200px;
 }
 
 .gallery-link {
+  display: block;
+  width: 360px;
+  height: 200px;
+  overflow: hidden;
+  transition: transform 250ms ease-in-out;
+  cursor: zoom-in;
+}
+
+.gallery-link:hover {
+  transform: scale(1.0444, 1.04);
 }
 
 .gallery-image {
