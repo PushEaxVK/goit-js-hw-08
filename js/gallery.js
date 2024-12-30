@@ -89,4 +89,29 @@ gallery.addEventListener('click', event => {
     return;
   }
   const imageSource = event.target.dataset.source;
+  const alt = event.target.alt;
+
+  const instance = basicLightbox.create(
+    `<div class="modal-card">
+        <img class="modal-image" src="${imageSource}" width="200" height="200" alt="${alt}">
+      </div>`,
+    {
+      onShow: () => {
+        window.addEventListener('keydown', event => {
+          if (event.code === 'Escape') {
+            instance.close();
+          }
+        });
+      },
+      onClose: () => {
+        window.removeEventListener('keydown', event => {
+          if (event.code === 'Escape') {
+            instance.close();
+          }
+        });
+      },
+      className: 'modal-window',
+    }
+  );
+  instance.show();
 });
